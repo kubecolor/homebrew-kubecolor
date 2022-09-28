@@ -9,17 +9,17 @@ class Kubecolor < Formula
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/kubecolor/kubecolor/releases/download/v0.0.21/kubecolor_0.0.21_Darwin_arm64.tar.gz"
-      sha256 "4e7828a42a304d22cb8f3a10766d3aba313d3e91d993afbf42ba6dc10a778bb8"
+    if Hardware::CPU.intel?
+      url "https://github.com/kubecolor/kubecolor/releases/download/v0.0.21/kubecolor_0.0.21_Darwin_x86_64.tar.gz"
+      sha256 "f050e4ddf52b06ca5d0d710930cae5aa947e414b791c157f30331f8b9ad7e7e1"
 
       def install
         bin.install "kubecolor"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/kubecolor/kubecolor/releases/download/v0.0.21/kubecolor_0.0.21_Darwin_x86_64.tar.gz"
-      sha256 "245b9acd1ce2d512461a101300dcd738008fa16dad724240fc7a075b0be049b2"
+    if Hardware::CPU.arm?
+      url "https://github.com/kubecolor/kubecolor/releases/download/v0.0.21/kubecolor_0.0.21_Darwin_arm64.tar.gz"
+      sha256 "abf455b683ceb11fe61622673b1dccfe6dcd608c6c7ed6d3125ffaa2339fe293"
 
       def install
         bin.install "kubecolor"
@@ -28,17 +28,17 @@ class Kubecolor < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/kubecolor/kubecolor/releases/download/v0.0.21/kubecolor_0.0.21_Linux_x86_64.tar.gz"
-      sha256 "4243a2f4831858e87af331a63bd263cfaab66395d9657963b90afb808828c2bd"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/kubecolor/kubecolor/releases/download/v0.0.21/kubecolor_0.0.21_Linux_arm64.tar.gz"
+      sha256 "dd273a7c933dce2aa8562ba96359830709c6cfad5f1d1dd5676d2e69acbd2023"
 
       def install
         bin.install "kubecolor"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/kubecolor/kubecolor/releases/download/v0.0.21/kubecolor_0.0.21_Linux_arm64.tar.gz"
-      sha256 "5e1857b7cc9cc33b79ddca34fc3ba1ca6624ff2fd53ee15783a482cbf9cfa79c"
+    if Hardware::CPU.intel?
+      url "https://github.com/kubecolor/kubecolor/releases/download/v0.0.21/kubecolor_0.0.21_Linux_x86_64.tar.gz"
+      sha256 "89c6fd941163352b49fcdf0f777b9acf385073f9217b01bc38ba4182de02557c"
 
       def install
         bin.install "kubecolor"
