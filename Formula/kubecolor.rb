@@ -5,21 +5,21 @@
 class Kubecolor < Formula
   desc "Colorize your kubectl output"
   homepage "https://github.com/kubecolor/kubecolor"
-  version "0.0.21"
+  version "0.1.0"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/kubecolor/kubecolor/releases/download/v0.0.21/kubecolor_0.0.21_Darwin_x86_64.tar.gz"
-      sha256 "f050e4ddf52b06ca5d0d710930cae5aa947e414b791c157f30331f8b9ad7e7e1"
+    if Hardware::CPU.arm?
+      url "https://github.com/kubecolor/kubecolor/releases/download/v0.1.0/kubecolor_0.1.0_darwin_arm64.tar.gz"
+      sha256 "b57ce0170e4d7fcaf07ca07239de7ba048f4a9b44e73b6a8307ba191b6724963"
 
       def install
         bin.install "kubecolor"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/kubecolor/kubecolor/releases/download/v0.0.21/kubecolor_0.0.21_Darwin_arm64.tar.gz"
-      sha256 "abf455b683ceb11fe61622673b1dccfe6dcd608c6c7ed6d3125ffaa2339fe293"
+    if Hardware::CPU.intel?
+      url "https://github.com/kubecolor/kubecolor/releases/download/v0.1.0/kubecolor_0.1.0_darwin_amd64.tar.gz"
+      sha256 "4d189a74c9df3bb255e5da17afd9e50d1a748c25f0929fe3c589a77ec9db15c9"
 
       def install
         bin.install "kubecolor"
@@ -28,17 +28,17 @@ class Kubecolor < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/kubecolor/kubecolor/releases/download/v0.0.21/kubecolor_0.0.21_Linux_arm64.tar.gz"
-      sha256 "dd273a7c933dce2aa8562ba96359830709c6cfad5f1d1dd5676d2e69acbd2023"
+    if Hardware::CPU.intel?
+      url "https://github.com/kubecolor/kubecolor/releases/download/v0.1.0/kubecolor_0.1.0_linux_amd64.tar.gz"
+      sha256 "3f98ecfa0dcdf5ef39e6f6eb8cd175d207c3aa7791d91f0e23f72e9fc6ac1693"
 
       def install
         bin.install "kubecolor"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/kubecolor/kubecolor/releases/download/v0.0.21/kubecolor_0.0.21_Linux_x86_64.tar.gz"
-      sha256 "89c6fd941163352b49fcdf0f777b9acf385073f9217b01bc38ba4182de02557c"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/kubecolor/kubecolor/releases/download/v0.1.0/kubecolor_0.1.0_linux_arm64.tar.gz"
+      sha256 "1761f0ee31395caec3ae865bfec0dcb4c394ba326339933c6bf38ffbd87af9d4"
 
       def install
         bin.install "kubecolor"
